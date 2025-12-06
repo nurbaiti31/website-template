@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Lengkap</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #333; color: white; padding: 20px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        .section { display: none; padding: 20px; }
+        .active { display: block; }
+        .hero { text-align: center; }
+        .projects { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .project { background: white; padding: 20px; margin: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); flex: 1 1 300px; cursor: pointer; }
+        .project:hover { background-color: #f9f9f9; }
+        .dashboard { display: flex; flex-wrap: wrap; }
+        .card { background: white; padding: 20px; margin: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); flex: 1 1 300px; }
+        .login { background: white; padding: 20px; margin: 20px auto; max-width: 400px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background-color: #4CAF50; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; }
+        button:hover { background-color: #45a049; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table th, table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        table th { background-color: #f2f2f2; }
+        #chart-container { width: 100%; height: 300px; background-color: #eee; text-align: center; line-height: 300px; border-radius: 5px; margin-top: 20px; }
+        .product-list { display: flex; flex-wrap: wrap; }
+        .product { background: white; padding: 10px; margin: 10px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1); width: 200px; text-align: center; }
+        footer { background-color: #333; color: white; text-align: center; padding: 10px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Library Chart.js untuk chart placeholder -->
+    <script>
+        function showSection(sectionId) {
+            // Sembunyikan semua bagian
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            // Tampilkan bagian yang dipilih
+            document.getElementById(sectionId).classList.add('active');
+        }
+        function login() {
+            alert('Login berhasil! (Simulasi)');
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('member-content').style.display = 'block';
+        }
+        function loginEcommerce() {
+            alert('Login berhasil! (Simulasi Shopee)');
+            document.getElementById('ecommerce-login-form').style.display = 'none';
+            document.getElementById('ecommerce-member-content').style.display = 'block';
+        }
+        // Fungsi untuk render chart placeholder (dummy)
+        function renderChart() {
+            const ctx = document.getElementById('marketChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Grafik Market IDX (Dummy)',
+                        data: [100, 120, 110, 130, 125, 140],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+        function renderSalesChart() {
+            const ctx = document.getElementById('salesChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Penjualan Shopee (Dummy)',
+                        data: [500, 700, 600, 800, 750, 900],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+        window.onload = function() {
+            showSection('landing');
+            renderChart();
+            renderSalesChart();
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Portofolio Lengkap</h1>
+        <nav>
+            <a href="#" onclick="showSection('landing')">Landing Page</a>
+            <a href="#" onclick="showSection('admin')">Dashboard Admin</a>
+            <a href="#" onclick="showSection('member')">Area Member</a>
+            <a href="#" onclick="showSection('proyek1')">Proyek 1: IDX</a>
+            <a href="#" onclick="showSection('proyek2')">Proyek 2: E-commerce</a>
+        </nav>
+    </header>
+
+    <!-- Landing Page -->
+    <div id="landing" class="section active">
+        <section class="hero">
+            <h2>Hai, Saya Nurbaiti</h2>
+            <p>Web Developer yang passionate tentang teknologi dan desain.</p>
+            <button onclick="alert('Hubungi saya!')">Hubungi Saya</button>
+        </section>
+        <section class="projects">
+            <div class="project" onclick="showSection('proyek1')">
+                <h3>Proyek 1: Template Website IDX</h3>
+                <p>Klik untuk melihat detail proyek ini.</p>
+            </div>
+            <div class="project" onclick="showSection('proyek2')">
+                <h3>Proyek 2: Website E-commerce (Shopee)</h3>
+                <p>Klik untuk melihat detail proyek ini.</p>
+            </div>
+            <div class="project">
+                <h3>Proyek 3: Aplikasi Mobile</h3>
+                <p>Deskripsi singkat proyek ini.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dashboard Admin -->
+    <div id="admin" class="section">
+        <section class="dashboard">
+            <div class="card">
+                <h3>Statistik Pengunjung</h3>
+                <p>Total Pengunjung: 1,234</p>
+                <p>Pengunjung Bulan Ini: 567</p>
+            </div>
+            <div class="card">
+                <h3>Kelola Proyek</h3>
+                <button onclick="alert('Tambah proyek baru!')">Tambah Proyek</button>
+                <button onclick="alert('Edit proyek!')">Edit Proyek</button>
+            </div>
+            <div class="card">
+                <h3>Pesan Kontak</h3>
+                <p>Pesan Baru: 5</p>
+                <button onclick="alert('Lihat pesan!')">Lihat Pesan</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Member Area -->
+    <div id="member" class="section">
+        <div id="login-form" class="login">
+            <h3>Login Member</h3>
+            <input type="text" placeholder="Username" id="username">
+            <input type="password" placeholder="Password" id="password">
+            <button onclick="login()">Login</button>
+        </div>
+        <div id="member-content" style="display: none; padding: 20px;">
+            <h3>Selamat Datang, Member!</h3>
+            <p>Akses eksklusif: Update proyek terbaru, tutorial premium, dan diskusi komunitas.</p>
+            <ul>
+                <li>Proyek Rahasia 1: Detail...</li>
+                <li>Proyek Rahasia 2: Detail...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Proyek 1: Template Website IDX -->
+    <div id="proyek1" class="section">
+        <section class="hero">
+            <h2>Proyek 1: Template Website IDX</h2>
+            <p>Template website untuk Bursa Efek Indonesia (IDX) dengan fitur grafik market, tabel saham, login system dummy, dan chart placeholder. Teknologi: HTML/CSS/JS.</p>
+        </section>
+        <nav style="text-align: center; margin: 20px 0;">
+            <a href="#" onclick="showSubSection('idx-landing')">Landing Page IDX</a> |
+            <a href="#" onclick="showSubSection('idx-admin')">Dashboard Admin IDX</a> |
+            <a href="#" onclick="showSubSection('idx-member')">Area Member IDX</a>
+        </nav>
+        <div id="idx-landing" class="sub-section active">
+            <h3>Landing Page IDX</h3>
+            <p>Selamat datang di simulasi Landing Page IDX. Fokus pada informasi pasar saham.</p>
+            <div id="chart-container">Chart Placeholder: Grafik Market IDX (Dummy)</div>
+        </div>
+        <div id="idx-admin" class="sub-section">
+            <h3>Dashboard Admin IDX</h3>
+            <div class="dashboard">
+                <div class="card">
+                    <h3>Grafik Market IDX</h3>
+                    <canvas id="marketChart"></canvas>
+                </div>
+                <div class="card">
+                    <h3>Tabel Saham IDX</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Kode Saham</th>
+                                <th>Harga Terakhir</th>
+                                <th>Perubahan (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BBCA</td>
+                                <td>Rp 8,500</td>
+                                <td>+1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>TLKM</td>
+                                <td>Rp 4,200</td>
+                                <td>-0.5%</td>
+                            </tr>
+                            <tr>
+                                <td>ASII</td>
+                                <td>Rp 6,800</td>
+                                <td>+0.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="idx-member" class="sub-section">
+            <h3>Area Member IDX</h3>
+            <div id="idx-login-form" class="login">
+                <h3>Login Member IDX</h3>
+                <input type="text" placeholder="Username" id="idx-username">
+                <input type="password" placeholder="Password" id="idx-password">
+                <button onclick="login()">Login</button>
+            </div>
+            <div id="idx-member-content" style="display: none; padding: 20px;">
+                <h3>Selamat Datang, Member IDX!</h3>
+                <p>Akses eksklusif: Update saham real-time, analisis market, dan diskusi komunitas investor.</p>
+                <ul>
+                    <li>Data Saham Premium: BBCA, TLKM, dll.</li>
+                    <li>Chart Placeholder: Lihat grafik di Dashboard Admin.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proyek 2: Website E-commerce (Shopee) -->
+    <div id="proyek2" class="section">
+        <section class="hero">
+            <h2>Proyek 2: Website E-commerce (Shopee)</h2>
+            <p>Template website e-commerce mirip Shopee dengan fitur grafik penjualan, tabel produk, login system dummy, dan chart placeholder. Teknologi: HTML/CSS/JS.</p>
+        </section>
+        <nav style="text-align: center; margin: 20px 0;">
+            <a href="#" onclick="showSubSection('ecommerce-landing')">Landing Page E-commerce</a> |
+            <a href="#" onclick="showSubSection('ecommerce-admin')">Dashboard Admin E-commerce</a> |
+            <a href="#" onclick="showSubSection('ecommerce-member')">Area Member E-commerce</a>
+        </nav>
+        <div id="ecommerce-landing" class="sub-section active">
+            <h3>Landing Page E-commerce (Shopee)</h3>
+            <p>Selamat datang di simulasi Landing Page Shopee. Jelajahi produk terbaru!</p>
+            <div class="product-list">
+                <div class="product">
+                    <h4>Produk 1: Smartphone</h4>
+                    <p>Harga: Rp 2,000,000</p>
+                    <button onclick="alert('Ditambahkan ke keranjang!')">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <h4>Produk 2: Laptop</h4>
+                    <p>Harga: Rp 5,000,000</p>
+                    <button onclick="alert('Ditambahkan ke keranjang!')">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <h4>Produk 3: Sepatu</h4>
+                    <p>Harga: Rp 500,000</p>
+                    <button onclick="alert('Ditambahkan ke keranjang!')">Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+        <div id="ecommerce-admin" class="sub-section">
+            <h3>Dashboard Admin E-commerce (Shopee)</h3>
+            <div class="dashboard">
+                <div class="card">
+                    <h3>Grafik Penjualan Shopee</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="card">
+                    <h3>Tabel Produk Shopee</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Produk</th>
+                                <th>Harga</th>
+                                <th>Stok</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Smartphone</td>
+                                <td>Rp 2,000,000</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Laptop</td>
+                                <td>Rp 5,000,000</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>Sepatu</td>
+                                <td>Rp 500,000</td>
+                                <td>100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="ecommerce-member" class="sub-section">
+            <h3>Area Member E-commerce (Shopee)</h3>
+            <div id="ecommerce-login-form" class="login">
+                <h3>Login Member Shopee</h3>
+                <input type="text" placeholder="Username" id="ecommerce-username">
+                <input type="password" placeholder="Password" id="ecommerce-password">
+                <button onclick="loginEcommerce()">Login</button>
+            </div>
+            <div id="ecommerce-member-content" style="display: none; padding: 20px;">
+                <h3>Selamat Datang, Member Shopee!</h3>
+                <p>Akses eksklusif: Diskon member, riwayat pesanan, dan rekomendasi produk.</p>
+                <ul>
+                    <li>Riwayat Pesanan: Smartphone, Laptop.</li>
+                    <li>Chart Placeholder: Lihat grafik penjualan di Dashboard Admin.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 [Nurbaiti]. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        function showSubSection(subSectionId) {
+            const subSections = document.querySelectorAll('.sub-section');
+            subSections.forEach(sub => sub.classList.remove('active'));
+            document.getElementById(subSectionId).classList.add('active');
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            showSubSection('idx-landing');
+            showSubSection('ecommerce-landing');
+        });
+    </script>
+</body>
+</html>
